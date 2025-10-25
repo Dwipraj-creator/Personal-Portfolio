@@ -1,0 +1,123 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer utilities {
+    .clip-path-custom {
+      clip-path: polygon(0 0, 100% 0, 100% 98%, 75% 95%, 0 100%);
+    }
+    .clip-path-custom-2 {
+        clip-path: polygon(0 0, 100% 0, 100% 98%, 25% 95%, 0 100%);
+      }
+    .clip-path-custom-3 {
+        clip-path: polygon(0 0, 100% 0, 100% 98%, 75% 96%, 0 100%);
+      }
+  }
+  
+
+
+@theme {
+  /* 👇 Define custom keyframes */
+  @keyframes blob {
+    0% { transform: scale(1); }
+    33% { transform: scale(1.2); }
+    66% { transform: scale(0.8); }
+    100% { transform: scale(1); }
+  }
+
+  /* 👇 Extend theme properties */
+  --animate-blob: blob 10s infinite;
+
+  /* 👇 Custom background gradient */
+ --bg-skills-gradient: linear-gradient(
+  38.73deg,
+  rgba(204, 0, 187, 0.15) 0%,
+  rgba(201, 32, 184, 0) 50%
+),
+linear-gradient(
+  141.27deg,
+  rgba(0, 70, 209, 0) 50%,
+  rgba(0, 70, 209, 0.15) 100%
+);
+}
+/* 🟣 Clean + Dark Theme GitHub Calendar */
+.calendar {
+  background: transparent !important;
+  border: none !important;
+  color: #e5e7eb !important; /* gray-200 */
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Hide "Skip to contributions year list" and extra footer text */
+.calendar .float-left,
+.calendar .float-right,
+.calendar .contrib-footer,
+.calendar h2,
+.calendar .sr-only {
+  display: none !important;
+}
+
+/* Clean background for contribution chart */
+.calendar .width-full {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Adjust grid alignment */
+.calendar .position-relative {
+  display: flex;
+  justify-content: center;
+}
+
+/* Fix text color in light areas */
+.calendar text {
+  fill: #d1d5db !important;
+}
+
+/* Custom purple gradient for contribution squares */
+.calendar rect.ContributionCalendar-day[data-level='0'] {
+  fill: #1f2937 !important; /* gray-800 */
+}
+.calendar rect.ContributionCalendar-day[data-level='1'] {
+  fill: #7c3aed !important; /* purple-600 */
+}
+.calendar rect.ContributionCalendar-day[data-level='2'] {
+  fill: #8b5cf6 !important; /* purple-500 */
+}
+.calendar rect.ContributionCalendar-day[data-level='3'] {
+  fill: #a78bfa !important; /* purple-400 */
+}
+.calendar rect.ContributionCalendar-day[data-level='4'] {
+  fill: #c4b5fd !important; /* purple-300 */
+}
+
+/* Smooth hover effect */
+.calendar rect.ContributionCalendar-day:hover {
+  stroke: #fff !important;
+  stroke-width: 1px;
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Center and clean legend */
+.calendar .contrib-legend {
+  justify-content: center !important;
+  color: #9ca3af !important;
+  margin-top: 10px;
+}
+
+/* Hide horizontal scrollbar */
+.calendar::-webkit-scrollbar {
+  display: none;
+}
