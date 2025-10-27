@@ -57,7 +57,7 @@ const About = () => {
 
           {/* Resume Button */}
           <a
-            href="https://drive.google.com/file/d/1YVmzgCnER8HC5hTRKobUKL-jmZj5lEij/view?usp=drivesdk "
+            href="https://drive.google.com/file/d/1aVGy8_tVT9bh-Z2uRTOpFP6d29ZMI8ju/view?usp=drivesdk"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block text-white py-3 px-8 rounded-full mt-5 text-lg font-bold transition duration-300 transform hover:scale-105"
@@ -79,12 +79,12 @@ const About = () => {
             scale={1.05}
             transitionSpeed={1000}
             gyroscope={true}
-            className="w-48 h-48 sm:w-64 sm:h-64 md:w-[30rem] md:h-[30rem] border-4 border-purple-700 rounded-full flex items-center justify-center"
+            className="w-48 h-48 sm:w-64 sm:h-64 md:w-[30rem] md:h-[30rem] border-4 border-purple-700 rounded-full flex items-center justify-center overflow-hidden shadow-[0_0_25px_rgba(130,69,236,0.5)]"
           >
             <img
               src={profilePic}
               alt="Dwipraj Dey"
-              className="w-full h-full rounded-full object-cover drop-shadow-[0_10px_20px_rgba(130,69,236,0.5)] translate-x-2"
+              className="w-full h-full object-cover rounded-full"
             />
           </Tilt>
         </div>

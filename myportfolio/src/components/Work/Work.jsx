@@ -64,21 +64,21 @@ const Work = () => {
         ))}
       </div>
 
-      {/* Modal Container */}
+      {/* Modal */}
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4">
           <div className="bg-gray-900 rounded-xl shadow-2xl lg:w-full w-[90%] max-w-3xl overflow-hidden relative">
-            <div className="flex justify-end p-4">
-              <button
-                onClick={handleCloseModal}
-                className="text-white text-3xl font-bold hover:text-purple-500"
-              >
-                &times;
-              </button>
-            </div>
+            {/* Close Button */}
+            <button
+              onClick={handleCloseModal}
+              className="absolute top-4 right-4 z-50 text-white text-4xl font-bold bg-black/60 hover:bg-purple-700/70 rounded-full w-10 h-10 flex items-center justify-center transition-colors"
+            >
+              &times;
+            </button>
 
+            {/* Modal Content */}
             <div className="flex flex-col">
-              <div className="w-full flex justify-center bg-gray-900 px-4">
+              <div className="w-full flex justify-center bg-gray-900 px-4 pt-6">
                 <img
                   src={selectedProject.image}
                   alt={selectedProject.title}

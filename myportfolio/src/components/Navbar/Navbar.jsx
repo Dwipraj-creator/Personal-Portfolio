@@ -11,13 +11,26 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      const sections = document.querySelectorAll("section[id]");
+      let current = "";
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 150;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      setActiveSection(current);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Smooth scroll function
+  // Smooth scroll to section
   const handleMenuItemClick = (sectionId) => {
     setActiveSection(sectionId);
     setIsOpen(false);
@@ -32,6 +45,7 @@ const Navbar = () => {
     { id: "about", label: "About" },
     { id: "skills", label: "Skills" },
     { id: "work", label: "Projects" },
+    {id:"github",label:"Github"},
     { id: "contact", label: "Contact" },
   ];
 
@@ -40,12 +54,12 @@ const Navbar = () => {
       className={`fixed top-0 w-full z-50 transition duration-300 px-[7vw] md:px-[7vw] lg:px-[20vw] ${
         isScrolled
           ? "bg-[#050414]/50 backdrop-blur-md shadow-md"
-          : "bg-gradient-to-b from-[#050414]/60 to-transparent"
+          : "md:bg-gradient-to-b md:from-[#050414]/60 md:to-transparent bg-transparent"
       }`}
     >
       <div className="flex justify-between items-center py-5 text-white">
         {/* Logo */}
-        <div className="text-lg font-semibold cursor-pointer">
+        <div className="text-lg font-semibold cursor-pointer select-none">
           <span className="text-[#8245ec]">&lt;</span>
           <span className="text-white">Dwipraj</span>
           <span className="text-[#8245ec]">/</span>
@@ -58,8 +72,10 @@ const Navbar = () => {
           {menuItems.map((item) => (
             <li
               key={item.id}
-              className={`cursor-pointer hover:text-[#8245ec] ${
-                activeSection === item.id ? "text-[#8245ec]" : ""
+              className={`cursor-pointer transition-colors duration-300 ${
+                activeSection === item.id
+                  ? "text-[#8245ec]"
+                  : "hover:text-[#8245ec]"
               }`}
             >
               <button onClick={() => handleMenuItemClick(item.id)}>
@@ -112,8 +128,10 @@ const Navbar = () => {
             {menuItems.map((item) => (
               <li
                 key={item.id}
-                className={`cursor-pointer hover:text-[#8245ec] ${
-                  activeSection === item.id ? "text-[#8245ec]" : ""
+                className={`cursor-pointer transition-colors duration-300 ${
+                  activeSection === item.id
+                    ? "text-[#8245ec]"
+                    : "hover:text-[#8245ec]"
                 }`}
               >
                 <button onClick={() => handleMenuItemClick(item.id)}>
@@ -122,6 +140,7 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
+
           <div className="flex justify-center space-x-4 pb-4">
             <a
               href="https://github.com/codingmastr"
