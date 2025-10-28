@@ -143,7 +143,7 @@ const Navbar = () => {
 
           <div className="flex justify-center space-x-4 pb-4">
             <a
-              href="https://github.com/codingmastr"
+              href="https://github.com/Dwipraj-creator"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-300 hover:text-[#8245ec]"
@@ -151,7 +151,7 @@ const Navbar = () => {
               <FaGithub size={24} />
             </a>
             <a
-              href="https://www.linkedin.com/in/tarun-kaushik-553b441a4"
+              href="https://www.linkedin.com/in/dwiprajdey/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-300 hover:text-[#8245ec]"
