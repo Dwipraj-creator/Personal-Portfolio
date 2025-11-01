@@ -1,55 +1,76 @@
 import React from "react";
 import { SkillsInfo } from "../../constants";
 import Tilt from "react-parallax-tilt";
+import { motion } from "framer-motion";
 
 const Skills = () => (
   <section
     id="skills"
-    className="py-24 px-[5vw] md:px-[7vw] lg:px-[20vw] font-sans [background-image:var(--bg-skills-gradient)] bg-cover bg-center bg-no-repeat"
+    className="relative py-24 px-[5vw] md:px-[7vw] lg:px-[15vw] font-sans bg-gradient-to-b from-[#0a0118] to-[#1a0733] overflow-hidden"
   >
-    <div className="text-center mb-8">
-      <h2 className="text-3xl sm:text-4xl font-bold text-white">SKILLS</h2>
-      <div className="w-24 h-1 bg-[#8245ec] mx-auto mt-2"></div>
-      <p className="text-gray-400 mt-4 text-lg font-semibold">
-        A collection of my technical skills honed through various projects and experiences
+    {/* Glowing background */}
+    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(130,69,236,0.2),transparent_70%)] pointer-events-none"></div>
+
+    {/* Section Header */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="text-center mb-12 relative z-10"
+    >
+      <h2 className="text-4xl sm:text-5xl font-extrabold text-white tracking-wider">
+        SKILLS
+      </h2>
+      <div className="w-24 h-1 bg-[#8245ec] mx-auto mt-3 rounded-full"></div>
+      <p className="text-gray-400 mt-4 text-lg max-w-2xl mx-auto leading-relaxed">
+        A collection of my technical skills honed through projects and hands-on
+        experience.
       </p>
-    </div>
+    </motion.div>
 
-    <div className="flex flex-wrap gap-5 justify-center">
-      {SkillsInfo.map((category) => (
-        <div
+    {/* Vertically stacked skill cards */}
+    <div className="flex flex-col gap-10 items-center relative z-10">
+      {SkillsInfo.map((category, i) => (
+        <motion.div
           key={category.title}
-          className="bg-gray-900 backdrop-blur-md p-6 sm:p-8 w-full sm:w-[48%] lg:w-[30%] rounded-2xl border border-white shadow-[0_0_20px_1px_rgba(130,69,236,0.3)] flex flex-col items-center"
+          initial={{ opacity: 0, scale: 0.9, y: 50 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ delay: i * 0.1, duration: 0.5 }}
+          className="w-full"
         >
-          <h3 className="text-2xl sm:text-3xl font-semibold text-gray-400 mb-4 text-center">
-            {category.title}
-          </h3>
-
           <Tilt
-            tiltMaxAngleX={20}
-            tiltMaxAngleY={20}
-            perspective={1000}
+            tiltMaxAngleX={15}
+            tiltMaxAngleY={15}
             scale={1.05}
-            transitionSpeed={1000}
+            transitionSpeed={1500}
             gyroscope={true}
           >
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-3 w-full">
-              {category.skills.map((skill) => (
-                <div
-                  key={skill.name}
-                  className="flex flex-col items-center justify-center space-y-1 sm:space-y-2 bg-transparent border-2 border-gray-700 rounded-3xl py-2 px-2 text-center min-w-[60px]"
-                >
-                  <img
-                    src={skill.logo}
-                    alt={`${skill.name} logo`}
-                    className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
-                  />
-                  <span className="text-xs sm:text-sm text-gray-300">{skill.name}</span>
-                </div>
-              ))}
+            <div className="relative group bg-gray-900/70 backdrop-blur-lg border border-gray-700 hover:border-[#8245ec] transition-all duration-300 rounded-2xl shadow-[0_0_25px_rgba(130,69,236,0.2)] p-8 w-full hover:shadow-[0_0_40px_rgba(130,69,236,0.5)]">
+              <h3 className="text-2xl font-semibold text-white mb-6 text-center group-hover:text-[#8245ec] transition">
+                {category.title}
+              </h3>
+
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6 justify-items-center">
+                {category.skills.map((skill) => (
+                  <motion.div
+                    key={skill.name}
+                    whileHover={{ scale: 1.1 }}
+                    className="flex flex-col items-center justify-center bg-gray-800/40 border border-gray-700 rounded-2xl p-3 w-[85px] sm:w-[90px] hover:bg-[#8245ec]/10 hover:border-[#8245ec] transition-all duration-300"
+                  >
+                    <img
+                      src={skill.logo}
+                      alt={`${skill.name} logo`}
+                      className="w-10 h-10 object-contain mb-2"
+                    />
+                    <span className="text-gray-300 text-sm font-medium">
+                      {skill.name}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </Tilt>
-        </div>
+        </motion.div>
       ))}
     </div>
   </section>

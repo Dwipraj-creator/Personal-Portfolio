@@ -49,17 +49,35 @@ const About = () => {
           </p>
 
           <p className="text-base sm:text-lg text-gray-400 mb-10 mt-2 leading-relaxed">
-            I hold a Bachelor of Commerce degree and I’m passionate about coding,
-            learning new technologies, and creating impactful digital
+            I hold a Bachelor of Commerce degree and I’m passionate about
+            coding, learning new technologies, and creating impactful digital
             experiences. My goal is to grow professionally while contributing to
             exciting projects and collaborating with like-minded individuals.
           </p>
 
           {/* Resume Button */}
           <a
-            href="https://drive.google.com/file/d/1aVGy8_tVT9bh-Z2uRTOpFP6d29ZMI8ju/view?usp=drivesdk"
+            href="https://drive.google.com/file/d/1aVGy8_tVT9bh-Z2uRTOpFP6d29ZMI8ju/view?usp=drive_link"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={(e) => {
+              e.preventDefault();
+
+              // 👇 Open the preview page in a new tab
+              window.open(
+                "https://drive.google.com/file/d/1aVGy8_tVT9bh-Z2uRTOpFP6d29ZMI8ju/view?usp=drive_link",
+                "_blank"
+              );
+
+              // 👇 Create a hidden download link and trigger it
+              const link = document.createElement("a");
+              link.href =
+                "https://drive.google.com/uc?export=download&id=1aVGy8_tVT9bh-Z2uRTOpFP6d29ZMI8ju";
+              link.download = "Dwipraj_Dey_Resume.pdf"; // you can name the file here
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            }}
             className="inline-block text-white py-3 px-8 rounded-full mt-5 text-lg font-bold transition duration-300 transform hover:scale-105"
             style={{
               background: "linear-gradient(90deg,#8245ec,#a855f7)",
