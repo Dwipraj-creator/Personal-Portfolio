@@ -42,6 +42,7 @@ const Work = () => {
                 className="w-full h-64 object-cover rounded-xl"
               />
             </div>
+
             <div className="p-6">
               <h3 className="text-2xl font-bold text-white mb-2 text-center">
                 {project.title}
@@ -49,6 +50,8 @@ const Work = () => {
               <p className="text-gray-400 mb-4 pt-4 text-center">
                 {project.description}
               </p>
+
+              {/* Tags */}
               <div className="flex flex-wrap justify-center mb-4">
                 {project.tags.map((tag, index) => (
                   <span
@@ -58,6 +61,28 @@ const Work = () => {
                     {tag}
                   </span>
                 ))}
+              </div>
+
+              {/* Buttons visible by default */}
+              <div className="flex gap-4 justify-center mt-4">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-1/2 bg-gray-800 hover:bg-purple-800 text-gray-400 px-4 py-2 rounded-xl text-sm lg:text-xl font-semibold text-center transition"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  View Code
+                </a>
+                <a
+                  href={project.webapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-1/2 bg-purple-600 hover:bg-purple-800 text-white px-4 py-2 rounded-xl text-sm lg:text-xl font-semibold text-center transition"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  View Live
+                </a>
               </div>
             </div>
           </div>
@@ -92,6 +117,7 @@ const Work = () => {
                 <p className="text-gray-400 mb-6 text-sm lg:text-base text-center">
                   {selectedProject.description}
                 </p>
+
                 <div className="flex flex-wrap justify-center gap-2 mb-6">
                   {selectedProject.tags.map((tag, index) => (
                     <span
@@ -102,6 +128,7 @@ const Work = () => {
                     </span>
                   ))}
                 </div>
+
                 <div className="flex gap-4 justify-center">
                   <a
                     href={selectedProject.github}
