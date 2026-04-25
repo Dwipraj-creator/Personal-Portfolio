@@ -57,6 +57,7 @@ import removebgLogo from './assets/work_logo/remove_bg.png';
 import resumeBuilderLogo from "./assets/work_logo/ResumeBuilder.png"
 import financeTrackerLogo from "./assets/work_logo/personalFinanceTracker (1).png"
 import memoryLaneLogo from "./assets/work_logo/MemoryLane.png"
+import learningManagementLogo from "./assets/work_logo/learningManagementLogo.png"
 
 
 export const SkillsInfo = [
@@ -199,8 +200,18 @@ export const SkillsInfo = [
   ];
   
   export const projects = [
+    { 
+      id:0,
+      title:"Learning-Management-System",
+      description:"Built a full-stack Learning Management System (LMS) using React, Tailwind CSS, Node.js, Express, and MongoDB, enabling course creation with structured lectures and chapters",
+      image:learningManagementLogo,
+      tags:["HTML", "CSS", "JavaScript", "React.JS", "Node.js","MongoDB","Express.js","clerk","Stripe"],
+      github:"https://github.com/Dwipraj-creator/Learning-Management-System",
+      webapp:"https://learning-management-system-zeta-five.vercel.app/"
+    }
+    ,
     {
-      id: 0,
+      id: 1,
       title: "Resume Builder App",
       description:
         "Resume Builder is a user-friendly web app to create, customize, and download professional resumes with ready-to-use templates and tips.",
@@ -210,7 +221,7 @@ export const SkillsInfo = [
       webapp: "https://resume-builder-h217.vercel.app/",
     },
     {
-      id: 1,
+      id: 2,
       title: "Personal Finance Tracker",
       description:
         "A frontend application that enables users to manage their personal finances by tracking income, expenses, and savings. It aims to help users make informed financial decisions and set financial goals.",
@@ -219,16 +230,16 @@ export const SkillsInfo = [
       github: "https://github.com/Dwipraj-creator/Personal-Finance-Tracker",
       webapp: "https://personal-finance-tracker-bwlh.vercel.app/",
     },
-    {
-      id: 2,
-      title: "Memory Lane",
-      description:
-      "This Frontend application enables users to manage their personal finances by tracking income, expenses, and savings. It aims to help users make informed financial decisions and set financial goals.",
-      image: memoryLaneLogo,
-      tags: ["React JS", "HTML", "CSS", "JavaScript","Tailwind CSS", "Cloudinary"],
-      github: "https://github.com/Dwipraj-creator/MemoryLane-Project",
-      webapp: "https://memory-lane-project.vercel.app/",
-    },
+    // {
+    //   id: 3,
+    //   title: "Memory Lane",
+    //   description:
+    //   "This Frontend application enables users to manage their personal finances by tracking income, expenses, and savings. It aims to help users make informed financial decisions and set financial goals.",
+    //   image: memoryLaneLogo,
+    //   tags: ["React JS", "HTML", "CSS", "JavaScript","Tailwind CSS", "Cloudinary"],
+    //   github: "https://github.com/Dwipraj-creator/MemoryLane-Project",
+    //   webapp: "https://memory-lane-project.vercel.app/",
+    // },
     // {
     //   id: 3,
     //   title: "Email Validator NPM Package",
